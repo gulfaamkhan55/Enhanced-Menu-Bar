@@ -18,7 +18,7 @@ export interface IEnhancedListItemButton {
 export const EnhancedLeftMenu: React.FC<IEnhancedListItemButton> = ({
   arr,
 }) => {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState<boolean>(false);
 
   const handleClickOpen = () => {
     setOpen(!open);
@@ -26,14 +26,13 @@ export const EnhancedLeftMenu: React.FC<IEnhancedListItemButton> = ({
 
   return (
     <List sx={{ width: "100%" }}>
-      {arr.map((item) => (
+      {arr.map((item, index) => (
         <EnhancedListItemButton
-          key={item.id}
+          key={index}
           id={item.id}
           text={item.text}
           item={item.icon}
           onClick={handleClickOpen}
-          open={open}
           menu={item.menu}
         />
       ))}

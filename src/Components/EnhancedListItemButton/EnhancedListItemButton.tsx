@@ -14,7 +14,6 @@ export interface IEnhancedListItemButton {
   text: string;
   item: string;
   onClick: any;
-  open: any;
   menu: {
     menuId: number;
     text: string;
@@ -26,7 +25,6 @@ export const EnhancedListItemButton: React.FC<IEnhancedListItemButton> = ({
   text,
   item,
   onClick,
-  open,
   menu,
 }) => {
   return (
@@ -34,9 +32,9 @@ export const EnhancedListItemButton: React.FC<IEnhancedListItemButton> = ({
       <ListItemButton onClick={onClick}>
         <ListItemIcon>{item}</ListItemIcon>
         <ListItemText primary={text} />
-        {open ? <ExpandLess /> : <ExpandMore />}
+        {onClick ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
-      <Collapse in={open}>
+      <Collapse in={onClick}>
         <List>
           {menu.map((menuItem) => {
             <ListItemButton key={id} onClick={onClick}>
