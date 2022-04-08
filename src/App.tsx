@@ -1,24 +1,59 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { EnhancedLeftMenu } from "./Components/Enhanced_Left_Menu/EnhancedLeftMenu";
+import HomeIcon from "@mui/icons-material/Home";
+const arr = [
+  {
+    id: 1,
+    text: "Home",
+    icon: <HomeIcon />,
+    open: true,
+    menu: [
+      {
+        menuId: 1,
+        text: "Dashboard",
+      },
+      {
+        menuId: 2,
+        text: "Client List",
+      },
+    ],
+  },
+  // {
+  //   id: 2,
+  //   text: "People",
+  //   icon: "Icon 2",
+  // },
+  // {
+  //   id: 3,
+  //   text: "Adjustment",
+  //   icon: "Icon 2",
+  // },
+  // {
+  //   id: 4,
+  //   text: "Audit",
+  //   icon: "Icon 2",
+  // },
+  // {
+  //   id: 5,
+  //   text: "Compliance",
+  //   icon: "Icon 2",
+  // },
+  // {
+  //   id: 6,
+  //   text: "Report",
+  //   icon: "Icon 2",
+  // },
+  // {
+  //   id: 7,
+  //   text: "Logout",
+  //   icon: "Icon 2",
+  // }
+];
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <EnhancedLeftMenu arr={arr} />
     </div>
   );
 }
