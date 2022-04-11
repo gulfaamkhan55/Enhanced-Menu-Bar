@@ -1,6 +1,7 @@
 import "./App.css";
 import { EnhancedLeftMenu } from "./Components/Enhanced_Left_Menu/EnhancedLeftMenu";
 import HomeIcon from "@mui/icons-material/Home";
+import React, { useState } from "react";
 const arr = [
   {
     id: 1,
@@ -140,9 +141,17 @@ const arr = [
 ];
 
 function App() {
+  const [open, setOpen] = useState<boolean>(false);
+  const handleClickOpen = (id: number) => {
+    arr.map((item) => {
+      if (item.id == id) {
+        setOpen(!open);
+      }
+    });
+  };
   return (
     <div className="App">
-      <EnhancedLeftMenu arr={arr} />
+      <EnhancedLeftMenu onClick={handleClickOpen} open={open} arr={arr} />
     </div>
   );
 }

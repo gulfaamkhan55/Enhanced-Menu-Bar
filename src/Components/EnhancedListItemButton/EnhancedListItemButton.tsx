@@ -7,11 +7,11 @@ import {
   ListItemText,
 } from "@mui/material";
 import React from "react";
-import { EnhancedLeftMenu } from "../Enhanced_Left_Menu/EnhancedLeftMenu";
 
 export interface IEnhancedListItemButton {
   id: number;
   text: string;
+  open: boolean;
   item: string;
   onClick: any;
   menu: {
@@ -23,21 +23,34 @@ export interface IEnhancedListItemButton {
 export const EnhancedListItemButton: React.FC<IEnhancedListItemButton> = ({
   id,
   text,
+  open,
   item,
   onClick,
   menu,
 }) => {
+  const handleClick = (id: number) => {
+    onClick(id);
+  };
   return (
     <>
-      <ListItemButton onClick={onClick}>
+      <ListItemButton
+        onClick={() => {
+          handleClick(id);
+        }}
+      >
         <ListItemIcon>{item}</ListItemIcon>
         <ListItemText primary={text} />
-        {onClick ? <ExpandLess /> : <ExpandMore />}
+        {open ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
-      <Collapse in={onClick}>
+      <Collapse in={open}>
         <List>
           {menu.map((menuItem) => {
-            <ListItemButton key={id} onClick={onClick}>
+            <ListItemButton
+              key={id}
+              onClick={() => {
+                onClick(id);
+              }}
+            >
               <ListItemText primary={menuItem.text} />
             </ListItemButton>;
           })}

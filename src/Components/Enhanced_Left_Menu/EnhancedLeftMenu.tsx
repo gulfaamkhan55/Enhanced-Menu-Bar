@@ -3,6 +3,8 @@ import List from "@mui/material/List";
 import { EnhancedListItemButton } from "../EnhancedListItemButton/EnhancedListItemButton";
 
 export interface IEnhancedListItemButton {
+  open: boolean;
+  onClick: any;
   arr: {
     id: number;
     text: string;
@@ -16,23 +18,20 @@ export interface IEnhancedListItemButton {
 }
 
 export const EnhancedLeftMenu: React.FC<IEnhancedListItemButton> = ({
+  open,
+  onClick,
   arr,
 }) => {
-  const [open, setOpen] = React.useState<boolean>(false);
-
-  const handleClickOpen = () => {
-    setOpen(!open);
-  };
-
   return (
     <List sx={{ width: "100%" }}>
       {arr.map((item, index) => (
         <EnhancedListItemButton
           key={index}
           id={item.id}
+          open={open}
           text={item.text}
           item={item.icon}
-          onClick={handleClickOpen}
+          onClick={onClick}
           menu={item.menu}
         />
       ))}
