@@ -5,32 +5,32 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  SvgIconTypeMap,
 } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
+import { ArrayData } from "../../Data/ArrayData";
 
-export interface IEnhancedListItemButton {
+export interface IProps {
   id: number;
   text: string;
   open: boolean;
-  item: string;
+  icon: string;
   onClick: any;
-  menu: {
-    menuId: number;
-    text: string;
-  }[];
+  data: any;
 }
 
-export const EnhancedListItemButton: React.FC<IEnhancedListItemButton> = ({
+export const EnhancedListItemButton: React.FC<IProps> = ({
   id,
   text,
   open,
-  item,
+  icon,
   onClick,
-  menu,
+  data,
 }) => {
   const handleClick = (id: number) => {
     onClick(id);
   };
+  const { listId, subMenu } = data;
   return (
     <>
       <ListItemButton
@@ -38,21 +38,21 @@ export const EnhancedListItemButton: React.FC<IEnhancedListItemButton> = ({
           handleClick(id);
         }}
       >
-        <ListItemIcon>{item}</ListItemIcon>
+        <ListItemIcon>{"Icon"}</ListItemIcon>
         <ListItemText primary={text} />
-        {open ? <ExpandLess /> : <ExpandMore />}
+        {data.listId == id ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
-      <Collapse in={open}>
+      <Collapse in={data.listId == id}>
         <List>
-          {menu.map((menuItem) => {
-            <ListItemButton
-              key={id}
-              onClick={() => {
-                onClick(id);
-              }}
-            >
-              <ListItemText primary={menuItem.text} />
-            </ListItemButton>;
+          {ArrayData.map((item) => {
+            item.id == data.listId &&
+              data.subMenu.map((eachItem: any) => {
+                console.log("======> ", eachItem.menuId);
+                console.log("======> ", eachItem.text);
+                // <ListItemButton>
+                //   <ListItemText primary={item.text} />
+                // </ListItemButton>;
+              });
           })}
         </List>
       </Collapse>
