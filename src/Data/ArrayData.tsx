@@ -1,8 +1,9 @@
+import HomeIcon from "@mui/icons-material/Home";
 export const ArrayData = [
   {
     id: 1,
     text: "Home",
-    icon: "HomeIcon",
+    icon: <HomeIcon />,
     menu: [
       {
         menuId: 1,
@@ -17,7 +18,7 @@ export const ArrayData = [
   {
     id: 2,
     text: "People",
-    icon: "HomeIcon",
+    icon: <HomeIcon />,
     menu: [
       {
         menuId: 1,
@@ -36,7 +37,7 @@ export const ArrayData = [
   {
     id: 3,
     text: "Adjustment",
-    icon: "HomeIcon",
+    icon: <HomeIcon />,
     menu: [
       {
         menuId: 1,
@@ -59,7 +60,7 @@ export const ArrayData = [
   {
     id: 4,
     text: "Audit",
-    icon: "HomeIcon",
+    icon: <HomeIcon />,
     menu: [
       {
         menuId: 1,
@@ -74,7 +75,7 @@ export const ArrayData = [
   {
     id: 5,
     text: "Compliance",
-    icon: "HomeIcon",
+    icon: <HomeIcon />,
     menu: [
       {
         menuId: 1,
@@ -93,7 +94,7 @@ export const ArrayData = [
   {
     id: 6,
     text: "Report",
-    icon: "HomeIcon",
+    icon: <HomeIcon />,
 
     menu: [
       {
@@ -125,7 +126,7 @@ export const ArrayData = [
   {
     id: 7,
     text: "logout",
-    icon: "HomeIcon",
+    icon: <HomeIcon />,
     menu: [],
   },
 ];
