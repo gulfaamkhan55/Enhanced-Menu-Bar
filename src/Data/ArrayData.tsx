@@ -3,6 +3,7 @@ export const ArrayData = [
   {
     id: 1,
     text: "Home",
+    open: false,
     icon: <HomeIcon />,
     menu: [
       {
@@ -18,6 +19,7 @@ export const ArrayData = [
   {
     id: 2,
     text: "People",
+    open: false,
     icon: <HomeIcon />,
     menu: [
       {
@@ -37,6 +39,7 @@ export const ArrayData = [
   {
     id: 3,
     text: "Adjustment",
+    open: false,
     icon: <HomeIcon />,
     menu: [
       {
@@ -60,6 +63,7 @@ export const ArrayData = [
   {
     id: 4,
     text: "Audit",
+    open: false,
     icon: <HomeIcon />,
     menu: [
       {
@@ -75,6 +79,7 @@ export const ArrayData = [
   {
     id: 5,
     text: "Compliance",
+    open: false,
     icon: <HomeIcon />,
     menu: [
       {
@@ -94,6 +99,7 @@ export const ArrayData = [
   {
     id: 6,
     text: "Report",
+    open: false,
     icon: <HomeIcon />,
 
     menu: [
@@ -126,6 +132,7 @@ export const ArrayData = [
   {
     id: 7,
     text: "logout",
+    open: false,
     icon: <HomeIcon />,
     menu: [],
   },
