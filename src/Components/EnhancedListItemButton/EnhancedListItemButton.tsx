@@ -17,7 +17,7 @@ export const EnhancedListItemButton: React.FC<IProps> = ({
 }) => {
   const [listId, setListId] = useState<number>(0);
   const [listSubMenu, setListSubMenu] = useState<any>([]);
-
+  const [open, setOpen] = useState<boolean>(false);
   // This method should return array of submenu
   const getSubMenu = (id: number) => {
     const arrayItem = ArrayData.find((item) => item.id === id);
@@ -28,8 +28,21 @@ export const EnhancedListItemButton: React.FC<IProps> = ({
 
   const handleClick = (id: number) => {
     const subMenu = getSubMenu(id);
+
+    // setExpanded({
+    //   ...expanded,
+    //   [id]: !expanded[id],
+    // });
+    // setPrevious(listId);
+    setOpen(false);
     if (listId !== id) {
-      setListId(id);
+      if (open) {
+        setOpen(false);
+      } else {
+        setOpen(true);
+      }
+      // setListId(0);
+      // setListId(id);
     } else {
       setListId(0);
     }
@@ -45,9 +58,10 @@ export const EnhancedListItemButton: React.FC<IProps> = ({
       >
         <ListItemIcon>{icon}</ListItemIcon>
         <ListItemText primary={text} />
-        {listId === id ? <ExpandLess /> : <ExpandMore />}
+
+        {open ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
-      <Collapse in={listId === id} unmountOnExit>
+      <Collapse in={open} timeout="auto" unmountOnExit>
         <List sx={{ pl: 7 }}>
           {listSubMenu.map((eachItem: any) => (
             <ListItemButton key={eachItem.menuId}>
