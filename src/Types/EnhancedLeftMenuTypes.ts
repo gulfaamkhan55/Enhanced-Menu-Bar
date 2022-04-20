@@ -4,10 +4,12 @@ export interface ISubMenuListItemButton {
 }
 
 export interface IProps {
-  item: { id: number; text: string; open?: boolean; icon: any };
-  // ;
-  // ;
-  // ;
+  item: {
+    id: number;
+    text: string;
+    open?: boolean;
+    icon: any;
+    menu: any;
+  };
   onClick: Function;
-  // ;
 }

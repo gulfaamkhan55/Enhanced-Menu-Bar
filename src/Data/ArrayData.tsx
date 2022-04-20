@@ -3,7 +3,7 @@ export const ArrayData = [
   {
     id: 1,
     text: "Home",
-    open: false,
+    open: true,
     icon: <HomeIcon />,
     menu: [
       {
@@ -83,16 +83,76 @@ export const ArrayData = [
     icon: <HomeIcon />,
     menu: [
       {
-        menuId: 1,
-        text: "t4",
+        id: 1,
+        text: "T4",
+        open: false,
+        icon: <HomeIcon />,
+        menu: [
+          {
+            menuId: 1,
+            text: "List",
+          },
+          {
+            menuId: 2,
+            text: "Setup",
+          },
+          {
+            menuId: 3,
+            text: "Summary",
+          },
+          {
+            menuId: 4,
+            text: "Summary Reduced EI",
+          },
+          {
+            menuId: 5,
+            text: "PD27 E Setup",
+          },
+        ],
       },
       {
-        menuId: 2,
+        id: 2,
         text: "T4A",
+        open: false,
+        icon: <HomeIcon />,
+        menu: [
+          {
+            menuId: 1,
+            text: "List",
+          },
+          {
+            menuId: 2,
+            text: "Setup",
+          },
+          {
+            menuId: 3,
+            text: "Summary",
+          },
+        ],
       },
       {
-        menuId: 3,
+        id: 3,
         text: "RL-1",
+        open: false,
+        icon: <HomeIcon />,
+        menu: [
+          {
+            menuId: 1,
+            text: "List",
+          },
+          {
+            menuId: 2,
+            text: "Setup",
+          },
+          {
+            menuId: 3,
+            text: "Summary",
+          },
+          {
+            menuId: 4,
+            text: "Setting",
+          },
+        ],
       },
     ],
   },
@@ -132,7 +192,6 @@ export const ArrayData = [
   {
     id: 7,
     text: "logout",
-    open: false,
     icon: <HomeIcon />,
     menu: [],
   },

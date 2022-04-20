@@ -1,6 +1,5 @@
 import "./App.css";
 import { EnhancedLeftMenu } from "./Components/Enhanced_Left_Menu/EnhancedLeftMenu";
-import React, { useState } from "react";
 
 function App() {
   return (
