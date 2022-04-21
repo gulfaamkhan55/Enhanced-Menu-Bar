@@ -30,15 +30,20 @@ export const EnhancedListItemButton: React.FC<IProps> = ({ item, onClick }) => {
         )}
       </ListItemButton>
       <Collapse in={item.open} timeout="auto" unmountOnExit>
-        <List sx={{ pl: 7 }}>
-          {item.menu &&
-            item.menu.length > 0 &&
-            item.menu.map((eachItem: { menuId: number; text: string }) => (
-              <ListItemButton key={eachItem.menuId}>
-                <ListItemText primary={eachItem.text} />
-              </ListItemButton>
-            ))}
-        </List>
+        {Array.isArray(item.menu) ? 
+          <List sx={{ pl: 7 }}>
+            {item.menu &&
+              item.menu.length > 0 &&
+              item.menu.map((eachItem: { menuId: number; text: string }) => (
+                <ListItemButton key={eachItem.menuId}>
+                  <ListItemText primary={eachItem.text} />
+                </ListItemButton>
+              ))}
+          </List>
+          :
+          item.menu
+        }
+
       </Collapse>
     </>
   );

@@ -4,6 +4,7 @@ export interface ISubMenuListItemButton {
 }
 
 export interface IProps {
+  key: number;
   item: {
     id: number;
     text: string;
