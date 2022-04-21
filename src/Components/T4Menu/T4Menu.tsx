@@ -1,7 +1,8 @@
-import React from 'react'
+import React from "react";
 import HomeIcon from "@mui/icons-material/Home";
+import { EnhancedSubMenu } from "../EnhancedSubMenu/EnhancedSubMenu";
 
-export const data = [
+const data = [
   {
     id: 1,
     text: "T4",
@@ -74,4 +75,8 @@ export const data = [
       },
     ],
   },
-]
+];
+
+export const SlipsMenu = () => {
+  return <EnhancedSubMenu data={data} />;
+};

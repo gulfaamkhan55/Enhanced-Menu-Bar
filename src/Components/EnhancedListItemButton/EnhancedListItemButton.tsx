@@ -8,8 +8,8 @@ import {
 } from "@mui/material";
 import React from "react";
 import { IProps } from "../../Types/EnhancedLeftMenuTypes";
-import { EnhancedSubMenu } from "../EnhancedSubMenu/EnhancedSubMenu";
-import { data } from "../T4Menu/T4Menu";
+// import { EnhancedSubMenu } from "../EnhancedSubMenu/EnhancedSubMenu";
+// import { data } from "../T4Menu/T4Menu";
 
 export const EnhancedListItemButton: React.FC<IProps> = ({ item, onClick }) => {
   const handleClick = (id: number) => {
@@ -43,7 +43,8 @@ export const EnhancedListItemButton: React.FC<IProps> = ({ item, onClick }) => {
               ))}
           </List>
           :
-          <EnhancedSubMenu data = {data} />
+          item.menu
+          // <EnhancedSubMenu data = {data} />
         }
 
       </Collapse>

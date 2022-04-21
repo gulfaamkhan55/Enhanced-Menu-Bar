@@ -5,6 +5,9 @@ function App() {
   return (
     <div className="App">
       <EnhancedLeftMenu data = {ArrayData}/>
+      {/* <div style={{backgroundColor: 'red'}}>
+      <EnhancedLeftMenu data = {ArrayData}/>
+      </div> */}
     </div>
   );
 }
