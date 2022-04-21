@@ -14,3 +14,7 @@ export interface IProps {
   };
   onClick: Function;
 }
+
+export interface IEnhancedLeftMenu {
+  data: any;
+}

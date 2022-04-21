@@ -2,11 +2,11 @@ import React, { useState } from "react";
 import * as _ from "lodash";
 import List from "@mui/material/List";
 
-import { ArrayData } from "../../Data/ArrayData";
 import { EnhancedListItemButton } from "../EnhancedListItemButton/EnhancedListItemButton";
+import { IEnhancedLeftMenu } from "../../Types/EnhancedLeftMenuTypes";
 
-export const EnhancedLeftMenu = () => {
-  const [menu, setMenu] = useState(ArrayData);
+export const EnhancedLeftMenu: React.FC<IEnhancedLeftMenu> = ({data}) => {
+  const [menu, setMenu] = useState(data);
 
   const onMenuItemClickHandler = (menuId: number) => {
     console.log("$$$$$", menuId);
@@ -24,7 +24,7 @@ export const EnhancedLeftMenu = () => {
   };
   return (
     <List sx={{ width: "100%", bgcolor: "transparent" }}>
-      {menu.map((item, index) => (
+      {menu.map((item : any, index: number) => (
         <EnhancedListItemButton
           key={index}
           item={item}
