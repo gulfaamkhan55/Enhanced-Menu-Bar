@@ -9,10 +9,12 @@ export interface IProps {
     id: number;
     text: string;
     open?: boolean;
-    icon: any;
-    menu: any;
+    icon?: any;
+    menu?: any;
   };
+  activeColor: string;
   onClick: Function;
+  onListItemClick: Function;
 }
 
 export interface IEnhancedLeftMenu {

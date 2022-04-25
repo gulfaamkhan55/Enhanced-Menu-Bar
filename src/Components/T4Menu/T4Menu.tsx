@@ -1,5 +1,3 @@
-import React from "react";
-import HomeIcon from "@mui/icons-material/Home";
 import { EnhancedSubMenu } from "../EnhancedSubMenu/EnhancedSubMenu";
 
 const data = [
@@ -7,7 +5,6 @@ const data = [
     id: 1,
     text: "T4",
     open: false,
-    icon: <HomeIcon />,
     menu: [
       {
         menuId: 1,
@@ -35,7 +32,6 @@ const data = [
     id: 2,
     text: "T4A",
     open: false,
-    icon: <HomeIcon />,
     menu: [
       {
         menuId: 1,
@@ -55,7 +51,6 @@ const data = [
     id: 3,
     text: "RL-1",
     open: false,
-    icon: <HomeIcon />,
     menu: [
       {
         menuId: 1,

@@ -7,8 +7,10 @@ import { IEnhancedLeftMenu } from "../../Types/EnhancedLeftMenuTypes";
 
 export const EnhancedLeftMenu: React.FC<IEnhancedLeftMenu> = ({data}) => {
   const [menu, setMenu] = useState(data);
+  const [activeColor, setActiveColor] = useState('');
 
-  const onMenuItemClickHandler = (menuId: number) => {
+
+  const onMenuItemClickHandler = (menuId: number) => {    
     console.log("$$$$$", menuId);
     const menuCopy = _.cloneDeep(menu);
     for (let index = 0; index < menuCopy.length; index++) {
@@ -22,13 +24,20 @@ export const EnhancedLeftMenu: React.FC<IEnhancedLeftMenu> = ({data}) => {
     console.log("next -> $$$$$", menuCopy);
     setMenu(menuCopy);
   };
+
+  const onListItemClickHandler = (menuId: number) => {
+    setActiveColor('yellow');
+  };
+
   return (
     <List sx={{ width: "100%", bgcolor: "transparent" }}>
       {menu.map((item : any, index: number) => (
         <EnhancedListItemButton
           key={index}
           item={item}
+          activeColor={activeColor}        
           onClick={onMenuItemClickHandler}
+          onListItemClick = {onListItemClickHandler}
         />
       ))}
     </List>

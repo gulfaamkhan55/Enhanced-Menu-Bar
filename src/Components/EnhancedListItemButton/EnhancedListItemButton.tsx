@@ -5,16 +5,31 @@ import {
   ListItemButton,
   ListItemIcon,
   ListItemText,
+  styled,
 } from "@mui/material";
 import React from "react";
 import { IProps } from "../../Types/EnhancedLeftMenuTypes";
-// import { EnhancedSubMenu } from "../EnhancedSubMenu/EnhancedSubMenu";
-// import { data } from "../T4Menu/T4Menu";
 
-export const EnhancedListItemButton: React.FC<IProps> = ({ item, onClick }) => {
+const CustomizedButton = styled(ListItemButton)`
+  :hover {
+    color: #996600;      
+    // backgroundColor: #996600;
+  }
+  // '& .MuiListItemButton-root': {
+    
+  // }
+`;
+
+export const EnhancedListItemButton: React.FC<IProps> = ({
+  item,
+  activeColor,
+  onClick,
+  onListItemClick,
+}) => {
   const handleClick = (id: number) => {
     onClick(id);
   };
+
   return (
     <>
       <ListItemButton
@@ -23,30 +38,28 @@ export const EnhancedListItemButton: React.FC<IProps> = ({ item, onClick }) => {
         }}
       >
         <ListItemIcon>{item.icon}</ListItemIcon>
-        <ListItemText primary={item.text} />
+        <ListItemText primary={item.text} />        
+        {item.menu ? ( item.open ? <ExpandLess /> : <ExpandMore />) : ""
+      }
 
-        {item.menu && item.menu.length > 0 && item.open ? (
-          <ExpandLess />
-        ) : (
-          <ExpandMore />
-        )}
+        
       </ListItemButton>
       <Collapse in={item.open} timeout="auto" unmountOnExit>
-        {Array.isArray(item.menu) ? 
+        {Array.isArray(item.menu) ? (
           <List sx={{ pl: 7 }}>
             {item.menu &&
               item.menu.length > 0 &&
               item.menu.map((eachItem: { menuId: number; text: string }) => (
-                <ListItemButton key={eachItem.menuId}>
+                <CustomizedButton                  
+                  key={eachItem.menuId}
+                >
                   <ListItemText primary={eachItem.text} />
-                </ListItemButton>
+                </CustomizedButton>
               ))}
           </List>
-          :
+        ) : (
           item.menu
-          // <EnhancedSubMenu data = {data} />
-        }
-
+        )}
       </Collapse>
     </>
   );

@@ -121,6 +121,5 @@ export const ArrayData = [
     id: 7,
     text: "logout",
     icon: <HomeIcon />,
-    menu: [],
   },
 ];

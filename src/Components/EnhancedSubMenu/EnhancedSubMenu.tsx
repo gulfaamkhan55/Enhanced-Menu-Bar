@@ -6,8 +6,8 @@ import { EnhancedListItemButton } from '../EnhancedListItemButton/EnhancedListIt
 
 export const EnhancedSubMenu: React.FC<IEnhancedLeftMenu> = ({data}) => {
     const [menu, setMenu] = useState(data);
-
-    const onMenuItemClickHandler = (menuId: number) => {
+    const [activeColor, setActiveColor] = useState("");
+    const onMenuItemClickHandler = (menuId: number) => {        
       console.log("$$$$$", menuId);
       const menuCopy = _.cloneDeep(menu);
       for (let index = 0; index < menuCopy.length; index++) {
@@ -20,16 +20,24 @@ export const EnhancedSubMenu: React.FC<IEnhancedLeftMenu> = ({data}) => {
       console.log("previous -> $$$$$", menu);
       console.log("next -> $$$$$", menuCopy);
       setMenu(menuCopy);
-    };  
+    };
+    
+    const onListItemClickHandler = (menuId: number) => {
+      setActiveColor('yellow');        
+    };
     return (
+
         <List sx={{ width: "100%", bgcolor: "transparent" }}>
-      {menu.map((item : [] | any, index: number) => (
+        {menu.map((item : [] | any, index: number) => (
         <EnhancedListItemButton
           key={index}
           item={item}
+          activeColor={activeColor} 
           onClick={onMenuItemClickHandler}
+          onListItemClick = {onListItemClickHandler}
         />
       ))}
     </List>
+
   )
 }
